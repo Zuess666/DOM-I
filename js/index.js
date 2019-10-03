@@ -37,6 +37,106 @@ const siteContent = {
   },
 };
 
+
+
 // Example: Update the img src for the logo
+
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let cta = document.getElementById("cta-img");
+cta.setAttribute('src', siteContent.cta["img-src"]);
+
+ // IN THE FOLLOWING LOOP I ADDED 1 TO i BECAUSE THE OBJECT ALSO
+  //HAS AN IMAGE PROPERTY WHICH SKEWS WHERE i ENDS
+let navBar = document.querySelectorAll("a");
+console.log(navBar);
+for (let i = 0; i < navBar.length; i++) {
+ navBar[i].textContent = siteContent["nav"][`nav-item-${i + 1}`];
+}
+
+// Dom is Awesome header above button
+
+let header = document.querySelector("h1");
+header.textContent = siteContent["cta"]["h1"];
+
+
+// text within button element
+
+let btnCta = document.querySelector("button");
+btnCta.textContent = siteContent["cta"]["button"];
+
+
+// top content section
+
+let topContent = document.querySelectorAll(".text-content h4");
+console.log(topContent);
+
+for (let i = 0; i < topContent.length; i++) {
+  if (i % 2 == 0) {
+    topContent[i].textContent = siteContent["main-content"]["features-h4"];
+  } else {
+    topContent[i].textContent = siteContent["main-content"]["about-h4"];
+  }
+}
+
+// middle image section
+
+let midImg = document.getElementById("middle-img");
+midImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+
+//bottom content section
+
+let btmContent = document.querySelectorAll(".text-content p");
+console.log(btmContent);
+for (let i = 0; i < btmContent.length; i++) {
+  if (i % 2 == 0) {
+    btmContent[i].textContent = siteContent["main-content"]["features-content"];
+  } else {
+    btmContent[i].textContent = siteContent["main-content"]["about-content"];
+  }
+}
+
+//contact section
+
+// top DOM is specifically for the h4 sub-heading above the contact info
+
+let contact = document.querySelector('.contact h4');
+contact.textContent = siteContent["contact"]["contact-h4"];
+
+// contact info
+
+let contactsP = document.querySelectorAll('.contact p');
+contactsP[0].textContent = siteContent["contact"]["address"];
+
+contactsP[1].textContent = siteContent["contact"]["phone"];
+
+contactsP[2].textContent = siteContent["contact"]["email"];
+
+
+// footer // although a footer it is also listed as a'p' tag
+
+let footer = document.querySelector('footer p');
+footer.textContent = siteContent['footer']['copyright'];
+
+
+//green nav bar
+
+ let navbarGreen = document.querySelectorAll('nav a');
+ for(let i = 1;i<7;i++){navbarGreen[i-1].style.color = 'green'};
+
+// //app and prepend
+
+ let navbarParent = document.querySelector('nav');
+
+ let Last = document.createElement('a');
+
+ Last.textContent="Last"
+
+ navbarParent.append(Last);
+
+ const First = document.createElement('a');
+
+ First.textContent="First"
+
+ navbarParent.prepend(First);
